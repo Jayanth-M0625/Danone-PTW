@@ -1,0 +1,772 @@
+/* Base design variables */
+:root {
+  --blue: #0a3b8c;
+  --lightblue: #dce8fa;
+  --border: #8aa5d6;
+  --red: #b71c1c;
+  --gray: #f7f9fc;
+}
+
+/* Page Setup for Print & Display */
+@page {
+  size: A4 portrait;
+  margin: 8mm;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 210mm;
+  height: 297mm;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  background-color: #fff;
+  overflow: hidden; /* Prevent scrolling/overflow */
+  font-size: 9px;
+  line-height: 1.1;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Permit Main Container */
+.permit-container {
+  width: 194mm; /* 210mm - 16mm margins */
+  height: 281mm; /* 297mm - 16mm margins */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+/* Utility layout components */
+.section-header {
+  background-color: var(--blue);
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-header .hindi-header {
+  font-size: 10px;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+/* Forms & Fields */
+.form-grid {
+  display: grid;
+  grid-gap: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.field-box {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--gray);
+}
+
+.field-box:last-child {
+  border-right: none;
+}
+
+.field-label {
+  font-size: 8px;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 1px;
+  text-transform: uppercase;
+}
+
+.field-label-hindi {
+  font-size: 8px;
+  color: #777;
+  font-weight: normal;
+  display: block;
+}
+
+.field-value {
+  font-size: 9px;
+  font-weight: bold;
+  color: var(--blue);
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 0;
+}
+
+/* Blank Line Fields in Checklist / Forms */
+.line-field {
+  display: inline-block;
+  border-bottom: 1px solid #333;
+  height: 12px;
+  margin-left: 4px;
+  vertical-align: bottom;
+}
+
+.line-input {
+  border: none;
+  border-bottom: 1px dashed var(--border);
+  font-family: inherit;
+  font-size: 9px;
+  color: #000;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  padding-bottom: 1px;
+}
+
+.line-input:focus {
+  border-bottom-style: solid;
+  border-bottom-color: var(--blue);
+}
+
+/* HEADER SECTION */
+.header-section {
+  display: grid;
+  grid-template-columns: 40mm 1fr 50mm;
+  align-items: center;
+  border-bottom: 2px solid var(--blue);
+  height: 22mm;
+  padding: 2px 4px;
+}
+
+.header-logo {
+  height: 15mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-logo img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.header-title-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-title {
+  color: var(--blue);
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.header-subtitle {
+  font-size: 8px;
+  color: #555;
+  margin-top: 1px;
+}
+
+.header-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
+  font-size: 8px;
+  border-left: 1px solid var(--border);
+  padding-left: 6px;
+  height: 100%;
+  justify-content: center;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #eee;
+  padding: 1px 0;
+}
+
+.meta-row:last-child {
+  border-bottom: none;
+}
+
+.meta-label {
+  font-weight: bold;
+  color: #555;
+}
+
+.meta-value {
+  font-weight: bold;
+  color: var(--blue);
+  text-align: right;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 28mm;
+  font-size: 8px;
+}
+
+/* PERMIT INFORMATION */
+.info-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: 9mm;
+}
+
+.info-row-2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: 9mm;
+}
+
+.info-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: 9mm;
+}
+
+/* PPE GRID SECTION */
+.ppe-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.ppe-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  height: 19mm;
+  border-bottom: 1px solid var(--border);
+  background-color: #fff;
+}
+
+.ppe-cell {
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 1px;
+  text-align: center;
+}
+
+.ppe-cell:last-child {
+  border-right: none;
+}
+
+.ppe-icon {
+  height: 8mm;
+  width: 8mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--border);
+  background-color: var(--gray);
+  margin-bottom: 1px;
+}
+
+.ppe-icon img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.ppe-label-en {
+  font-size: 7.5px;
+  font-weight: bold;
+  color: var(--blue);
+  line-height: 1;
+}
+
+.ppe-label-hi {
+  font-size: 7px;
+  color: #666;
+  line-height: 1;
+}
+
+.ppe-blank {
+  width: 90%;
+  border-bottom: 1px solid #777;
+  height: 10px;
+}
+
+.ppe-blank input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  text-align: center;
+  font-size: 7.5px;
+  color: var(--red);
+  padding: 0;
+  height: 100%;
+}
+
+/* MAIN CONTENT SPLIT (65% / 35%) */
+.main-content-split {
+  display: grid;
+  grid-template-columns: 62% 38%;
+  height: 154mm; /* Adjusted to fit the remaining space */
+  border-bottom: 1px solid var(--border);
+}
+
+/* CHECKLIST (LEFT SIDE - 66%) */
+.checklist-container {
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.checklist-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  height: 100%;
+}
+
+.checklist-table th, .checklist-table td {
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  padding: 2px 4px;
+  vertical-align: middle;
+}
+
+.checklist-table th:last-child, .checklist-table td:last-child {
+  border-right: none;
+}
+
+.checklist-table tr:last-child td {
+  border-bottom: none;
+}
+
+.checklist-table th {
+  background-color: var(--blue);
+  color: #fff;
+  font-size: 9px;
+  font-weight: bold;
+  text-align: center;
+  height: 6mm;
+}
+
+.col-no { width: 6%; text-align: center; }
+.col-desc { width: 68%; }
+.col-yes { width: 7%; text-align: center; }
+.col-na { width: 7%; text-align: center; }
+.col-photo { width: 12%; text-align: center; }
+
+.checklist-row {
+  height: 8.7mm; /* (154mm - 6mm header) / 17 rows = ~8.7mm per row */
+}
+
+.checklist-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.desc-en {
+  font-weight: bold;
+  font-size: 8px;
+  color: #111;
+  line-height: 1.05;
+}
+
+.desc-hi {
+  font-size: 8px;
+  color: #555;
+  margin-top: 0.5px;
+  line-height: 1.05;
+}
+
+.check-blank-line {
+  border-bottom: 1px solid #777;
+  width: 12px;
+  height: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.check-blank-line input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  text-align: center;
+  font-size: 8px;
+  height: 100%;
+  padding: 0;
+  font-weight: bold;
+}
+
+.photo-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 1px !important;
+}
+
+.photo-box {
+  width: 100%;
+  height: 7mm;
+  border: 1px dashed var(--border);
+  background-color: var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photo-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/* RIGHT PANEL (34%) */
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+}
+
+.right-card {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border);
+}
+
+.right-card:last-child {
+  border-bottom: none;
+}
+
+.card-title {
+  background-color: var(--blue);
+  color: #fff;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 2px 4px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ATMOSPHERIC TEST RECORD CARD (Height: 52mm) */
+.atmospheric-card {
+  height: 52mm;
+}
+
+.atmospheric-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 7.5px;
+  height: 47mm; /* 52mm - 5mm title */
+}
+
+.atmospheric-table th, .atmospheric-table td {
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  padding: 1px 2px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.atmospheric-table th:last-child, .atmospheric-table td:last-child {
+  border-right: none;
+}
+
+.atmospheric-table th {
+  background-color: var(--lightblue);
+  color: var(--blue);
+  font-weight: bold;
+  height: 6mm;
+}
+
+.atmospheric-table td {
+  height: 6.8mm; /* (47mm - 6mm header) / 6 rows */
+}
+
+.atmospheric-table input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 7.5px;
+  text-align: center;
+  outline: none;
+  padding: 0;
+}
+
+/* ENTRANT LOG CARD (Height: 52mm) */
+.entrant-card {
+  height: 52mm;
+}
+
+.entrant-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 7.5px;
+  height: 47mm; /* 52mm - 5mm title */
+}
+
+.entrant-table th, .entrant-table td {
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  padding: 1px 2px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.entrant-table th:last-child, .entrant-table td:last-child {
+  border-right: none;
+}
+
+.entrant-table th {
+  background-color: var(--lightblue);
+  color: var(--blue);
+  font-weight: bold;
+  height: 6mm;
+}
+
+.entrant-table td {
+  height: 6.8mm; /* (47mm - 6mm header) / 6 rows */
+}
+
+.entrant-table input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 7.5px;
+  text-align: center;
+  outline: none;
+  padding: 0;
+}
+
+/* CLOSE OUT CHECKLIST CARD (Height: 50mm) */
+.closeout-card {
+  height: 50mm;
+}
+
+.closeout-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 7.5px;
+  height: 45mm; /* 50mm - 5mm title */
+}
+
+.closeout-table th, .closeout-table td {
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  padding: 1px 3px;
+  vertical-align: middle;
+}
+
+.closeout-table th:last-child, .closeout-table td:last-child {
+  border-right: none;
+}
+
+.closeout-table th {
+  background-color: var(--lightblue);
+  color: var(--blue);
+  font-weight: bold;
+  height: 6mm;
+  text-align: center;
+}
+
+.closeout-table td {
+  height: 7.8mm; /* (45mm - 6mm header) / 5 rows */
+}
+
+.closeout-desc {
+  font-weight: bold;
+  color: #333;
+}
+
+.closeout-desc-hi {
+  font-size: 7px;
+  color: #666;
+  display: block;
+}
+
+/* AUTHORIZATION MATRIX SECTION (Height: 33mm) */
+.auth-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 27mm;
+  background-color: var(--gray);
+}
+
+.auth-box {
+  border-right: 1px solid var(--border);
+  padding: 2px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.auth-box:last-child {
+  border-right: none;
+}
+
+.auth-box-title {
+  font-size: 8px;
+  font-weight: bold;
+  color: var(--blue);
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1px;
+  line-height: 1.1;
+  text-align: center;
+  min-height: 6mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-field {
+  display: flex;
+  align-items: center;
+  font-size: 7.5px;
+  margin: 1px 0;
+}
+
+.auth-label {
+  font-weight: bold;
+  color: #555;
+  width: 10mm;
+}
+
+.auth-input {
+  border: none;
+  border-bottom: 1px dashed #bbb;
+  background: transparent;
+  flex-grow: 1;
+  font-size: 7.5px;
+  outline: none;
+  padding: 0;
+}
+
+/* Hindi formatting specifics */
+.hindi-text {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* SECTION BREAK ROW */
+.section-row td {
+  background: linear-gradient(to right, #0a3b8c, #2a5bd7);
+  color: #fff;
+  font-weight: bold;
+  font-size: 8.5px;
+  padding: 3px 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Sub-section (lighter) */
+.subsection-row td {
+  background-color: #e8f0ff;
+  color: #0a3b8c;
+  font-weight: bold;
+  font-size: 8px;
+}
+
+/* Alternate rows for readability */
+.checklist-table tbody tr:nth-child(even):not(.section-row):not(.subsection-row) {
+  background-color: #f7f9fc;
+}
+
+/* Remove forced heights */
+.checklist-row {
+  height: auto !important;
+}
+
+/* Compact rows */
+.checklist-table td {
+  padding: 1.5px 3px;
+}
+
+/* CLOSEOUT CARD AUTO SIZE */
+.right-card {
+  height: auto !important;
+}
+
+.closeout-table {
+  height: auto !important;
+}
+
+/* Make right panel flexible */
+.right-panel {
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+/* Card styling improvement */
+.right-card {
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 3px rgba(0,0,0,0.08);
+}
+
+/* Header polish */
+.section-header, .card-title {
+  background: linear-gradient(90deg, #0a3b8c, #1e56c9);
+}
+.section-electrical td { background: #ffecec; color: #b71c1c; }
+.section-general td { background: #e8f5e9; color: #2e7d32; }
+
+
+/* Keep table consistent with your system */
+.linebreak-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 7.5px;
+}
+
+/* SAME as other tables */
+.linebreak-table th {
+  background-color: var(--lightblue);
+  color: var(--blue);
+  font-weight: bold;
+  height: 6mm;
+  text-align: center;
+}
+
+.linebreak-table td {
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  padding: 2px 3px;
+  vertical-align: middle;
+}
+
+.linebreak-table td:last-child,
+.linebreak-table th:last-child {
+  border-right: none;
+}

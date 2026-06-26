@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>General Work Permit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="permit-container">
+    
+    <!-- HEADER -->
+    <header class="header-section">
+      <div class="header-logo">
+        <img src="images/logo.png" alt="DANONE LOGO">
+      </div>
+      <div class="header-title-container">
+        <h1 class="header-title">GENERAL WORK PERMIT</h1>
+        <div class="header-subtitle">सामान्य कार्य अनुमति पत्र</div>
+      </div>
+      <div class="header-meta">
+        
+        <div class="meta-row">
+          <span class="meta-label">Permit No:</span>
+          <input type="text" class="meta-value" placeholder="..........................................">
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Date of Issue:</span>
+          <input type="text" class="meta-value" placeholder="DD/MM/YYYY">
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Valid From:</span>
+          <input type="text" class="meta-value" placeholder="HH:MM hrs">
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Valid Until:</span>
+          <input type="text" class="meta-value" placeholder="HH:MM hrs">
+        </div>
+      </div>
+    </header>
+    
+    
+    <!-- PERMIT INFORMATION -->
+    <section class="info-section">
+      <div class="form-grid" style="grid-template-columns: 1fr 1fr 1fr 1fr; height: 9mm;">
+        <div class="field-box">
+          <label class="field-label">Location / Area <span class="field-label-hindi">स्थान / क्षेत्र</span></label>
+          <input type="text" class="field-value">
+        </div>
+        <div class="field-box">
+          <label class="field-label">Department <span class="field-label-hindi">विभाग</span></label>
+          <input type="text" class="field-value">
+        </div>
+        <div class="field-box">
+          <label class="field-label">HIRA/JSA Ref No. <span class="field-label-hindi">हिरा/जेएसए संदर्भ संख्या</span></label>
+          <input type="text" class="field-value">
+        </div>
+        <div class="field-box">
+          <label class="field-label">Permit Ref <span class="field-label-hindi">परमिट संदर्भ</span></label>
+          <input type="text" class="field-value">
+        </div>
+      </div>
+      
+      <div class="form-grid" style="grid-template-columns: 2fr 1fr; height: 9mm;">
+        <div class="field-box">
+          <label class="field-label">Description of Work <span class="field-label-hindi">कार्य का विवरण</span></label>
+          <input type="text" class="field-value">
+        </div>
+        <div class="field-box">
+          <label class="field-label">Contractor / Vendor <span class="field-label-hindi">ठेकेदार / विक्रेता</span></label>
+          <input type="text" class="field-value">
+        </div>
+      </div>
+
+      <div class="form-grid" style="grid-template-columns: 1fr; height: 9mm;">
+        <div class="field-box">
+          <label class="field-label">Supervisor Name <span class="field-label-hindi">पर्यवेक्षक का नाम</span></label>
+          <input type="text" class="field-value">
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- PPE GRID SECTION -->
+    <section class="ppe-section">
+      <div class="section-header">
+        <span>Personal Protective Equipment Requirements</span>
+        <span class="hindi-header">व्यक्तिगत सुरक्षा उपकरण आवश्यकताएं</span>
+      </div>
+      <div class="ppe-grid">
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/helmet.jpg" alt="Helmet"></div>
+          <span class="ppe-label-en">Helmet</span>
+          <span class="ppe-label-hi">सुरक्षा हेलमेट</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/shoes.jpg" alt="Shoes"></div>
+          <span class="ppe-label-en">Safety Shoes</span>
+          <span class="ppe-label-hi">सुरक्षा जूते</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/goggles.jpg" alt="Goggles"></div>
+          <span class="ppe-label-en">Goggles</span>
+          <span class="ppe-label-hi">सुरक्षा चश्मा</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/shield.jpg" alt="Face Shield"></div>
+          <span class="ppe-label-en">Face Shield</span>
+          <span class="ppe-label-hi">फेस शील्ड</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/gloves.jpg" alt="Gloves"></div>
+          <span class="ppe-label-en">Gloves</span>
+          <span class="ppe-label-hi">दस्ताने</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/earmuff.jpg" alt="Ear Muff"></div>
+          <span class="ppe-label-en">Ear Muff</span>
+          <span class="ppe-label-hi">इयर मफ</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/mask.jpg" alt="Resp. Mask"></div>
+          <span class="ppe-label-en">Resp. Mask</span>
+          <span class="ppe-label-hi">श्वसन मास्क</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/harness.jpg" alt="Harness"></div>
+          <span class="ppe-label-en">Harness</span>
+          <span class="ppe-label-hi">सुरक्षा हार्नेस</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/scba.jpg" alt="SCBA"></div>
+          <span class="ppe-label-en">SCBA</span>
+          <span class="ppe-label-hi">एससीबीए</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/others.jpg" alt="Others"></div>
+          <span class="ppe-label-en">Others</span>
+          <span class="ppe-label-hi">अन्य</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- MAIN CONTENT SPLIT -->
+    <div class="main-content-split">
+      <section class="checklist-container">
+        <table class="checklist-table">
+          <thead>
+            <tr>
+              <th class="col-no">No</th>
+              <th class="col-desc">General Pre-Work Checklist / सामान्य प्री-वर्क चेकलिस्ट</th>
+              <th class="col-yes">Yes</th>
+              <th class="col-na">N/A</th>
+              <th class="col-photo">Photo</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr class="checklist-row">
+              <td class="col-no">1</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en">Work area inspected and free from slip & trip hazards</span>
+                  <span class="desc-hi">कार्य क्षेत्र का निरीक्षण किया गया और फिसलने व ठोकर लगने के खतरों से मुक्त है</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box"><img src="images/photo01.jpg" alt="Photo"></div></td>
+            </tr>
+            <tr class="checklist-row">
+              <td class="col-no">2</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en">Adequate lighting available</span>
+                  <span class="desc-hi">पर्याप्त रोशनी उपलब्ध है</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box"><img src="images/photo02.jpg" alt="Photo"></div></td>
+            </tr>
+            <tr class="checklist-row">
+              <td class="col-no">3</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en">Is Area free from movement?</span>
+                  <span class="desc-hi">क्या क्षेत्र आवागमन से मुक्त है?</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box"><img src="images/photo03.jpg" alt="Photo"></div></td>
+            </tr>
+            <tr class="checklist-row">
+              <td class="col-no">4</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en">Work area barricaded and signage in place (if required)</span>
+                  <span class="desc-hi">कार्य क्षेत्र को बैरिकेड किया गया और संकेत चिन्ह लगाए गए (यदि आवश्यक हो)</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box"><img src="images/photo04.jpg" alt="Photo"></div></td>
+            </tr>
+            <tr class="checklist-row">
+              <td class="col-no">5</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en">Emergency passage / exits identified and clear</span>
+                  <span class="desc-hi">आपातकालीन मार्ग/निकास की पहचान की गई और वे साफ हैं</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box"><img src="images/photo05.jpg" alt="Photo"></div></td>
+            </tr>
+            <tr class="checklist-row">
+              <td class="col-no">6</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en">First aid kit available nearby</span>
+                  <span class="desc-hi">प्राथमिक चिकित्सा किट पास में उपलब्ध है</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box"><img src="images/photo06.jpg" alt="Photo"></div></td>
+            </tr>
+            <tr class="checklist-row">
+              <td class="col-no">7</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en">Hand tools visually inspected Done By: __________</span>
+                  <span class="desc-hi">हाथ के उपकरणों का विजुअल निरीक्षण किया गया। किया गया द्वारा: __________</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box"><img src="images/photo07.jpg" alt="Photo"></div></td>
+            </tr>
+            <tr class="checklist-row">
+              <td class="col-no">8</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en">Power tools / equipment inspected Done By: __________</span>
+                  <span class="desc-hi">बिजली के उपकरणों का निरीक्षण किया गया। किया गया द्वारा: __________</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box"><img src="images/photo08.jpg" alt="Photo"></div></td>
+            </tr>
+            <tr class="checklist-row">
+              <td class="col-no">9</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en">Above ticked PPE available and in good condition</span>
+                  <span class="desc-hi">ऊपर टिके हुए पीपीई उपलब्ध हैं और अच्छी स्थिति में हैं</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box"><img src="images/photo09.jpg" alt="Photo"></div></td>
+            </tr>
+            <tr class="checklist-row">
+              <td class="col-no">10</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en">Workers briefed on safety precautions (Tool Box Talk completed)</span>
+                  <span class="desc-hi">श्रमिकों को सुरक्षा सावधानियों के बारे में जानकारी दी गई (टूल बॉक्स टॉक पूरी हुई)</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box"><img src="images/photo10.jpg" alt="Photo"></div></td>
+            </tr>
+            <tr class="checklist-row">
+              <td class="col-no">11</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en">List other permits obtained (if required) _____________________</span>
+                  <span class="desc-hi">प्राप्त अन्य परमिटों की सूची बनाएं (यदि आवश्यक हो): _____________________</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box"><img src="images/photo11.jpg" alt="Photo"></div></td>
+            </tr>
+            <tr class="checklist-row">
+              <td class="col-no">12</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en">Additional precautions communicated</span>
+                  <span class="desc-hi">अतिरिक्त सावधानियां सूचित की गईं</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box"><img src="images/photo12.jpg" alt="Photo"></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <aside class="right-panel">
+        <!-- CARD 1: SELF DECLARATION -->
+        <div class="right-card" style="height: 52mm; padding: 6px; display: flex; flex-direction: column; justify-content: space-between; border-bottom: 1px solid var(--border)">
+          <div class="card-title">
+            <span>Self Declaration</span>
+            <span class="hindi-text">स्व-घोषणा</span>
+          </div>
+          <div style="font-size: 8px; color: #333; line-height: 1.2; margin-top: 4px;">
+            I have been trained and medically fit to execute this job.
+            <br><span style="color:#666">(मुझे इस कार्य को करने के लिए प्रशिक्षित किया गया है और मैं शारीरिक रूप से फिट हूँ।)</span>
+          </div>
+          <div class="auth-field" style="margin-top: 6px;">
+            <span class="auth-label" style="width:12mm">Name:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label" style="width:12mm">Sign:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label" style="width:12mm">Date:</span>
+            <input type="text" class="auth-input" placeholder="DD/MM/YYYY">
+          </div>
+        </div>
+
+        <!-- CARD 2: CLOSE OUT CHECKLIST -->
+        <div class="right-card closeout-card" style="height: 102mm">
+          <div class="card-title">
+            <span>Permit Close Out Checklist</span>
+            <span class="hindi-text">परमिट बंद करने की चेकलिस्ट</span>
+          </div>
+          <table class="closeout-table" style="height: 97mm">
+            <thead>
+              <tr>
+                <th style="width: 10%">No</th>
+                <th style="width: 70%">Checklist Item / विवरण</th>
+                <th style="width: 10%">Yes</th>
+                <th style="width: 10%">N/A</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td style="text-align: center">1</td>
+                <td>
+                  <span class="closeout-desc">Work completed satisfactorily & area cleaned</span>
+                  <span class="closeout-desc-hi">कार्य संतोषजनक ढंग से पूरा हुआ और क्षेत्र साफ किया गया</span>
+                </td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+              </tr>
+              <tr>
+                <td style="text-align: center">2</td>
+                <td>
+                  <span class="closeout-desc">All tools/equipment removed</span>
+                  <span class="closeout-desc-hi">सभी उपकरण/सामग्री हटा दिए गए हैं</span>
+                </td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+              </tr>
+              <tr>
+                <td style="text-align: center">3</td>
+                <td>
+                  <span class="closeout-desc">Other Relevant Permit closed</span>
+                  <span class="closeout-desc-hi">अन्य संबंधित परमिट बंद कर दिए गए हैं</span>
+                </td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+              </tr>
+              <tr>
+                <td style="text-align: center">4</td>
+                <td>
+                  <span class="closeout-desc">Waste segregation and disposal done</span>
+                  <span class="closeout-desc-hi">कचरा पृथक्करण और निपटान किया गया</span>
+                </td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </aside>
+    </div>
+
+    
+    <!-- BOTTOM AUTHORIZATION MATRIX -->
+    <section class="auth-section">
+      <div class="section-header">
+        <span>AUTHORIZATION MATRIX</span>
+        <span class="hindi-header">प्राधिकरण मैट्रिक्स (हस्ताक्षर अनुभाग)</span>
+      </div>
+      <div class="auth-grid" style="grid-template-columns: repeat(4, 1fr)">
+        
+        <div class="auth-box">
+          <div class="auth-box-title">Permit User<br><span style="font-weight:normal;font-size:7px;color:#777">परमिट उपयोगकर्ता</span></div>
+          <div class="auth-field">
+            <span class="auth-label">Name:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Sign:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Date:</span>
+            <input type="text" class="auth-input" placeholder="DD/MM/YYYY">
+          </div>
+        </div>
+        <div class="auth-box">
+          <div class="auth-box-title">Permit Issuer<br><span style="font-weight:normal;font-size:7px;color:#777">परमिट जारीकर्ता</span></div>
+          <div class="auth-field">
+            <span class="auth-label">Name:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Sign:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Date:</span>
+            <input type="text" class="auth-input" placeholder="DD/MM/YYYY">
+          </div>
+        </div>
+        <div class="auth-box">
+          <div class="auth-box-title">Safety Officer<br><span style="font-weight:normal;font-size:7px;color:#777">सुरक्षा अधिकारी</span></div>
+          <div class="auth-field">
+            <span class="auth-label">Name:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Sign:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Date:</span>
+            <input type="text" class="auth-input" placeholder="DD/MM/YYYY">
+          </div>
+        </div>
+        <div class="auth-box">
+          <div class="auth-box-title">Area Owner<br><span style="font-weight:normal;font-size:7px;color:#777">क्षेत्र मालिक</span></div>
+          <div class="auth-field">
+            <span class="auth-label">Name:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Sign:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Date:</span>
+            <input type="text" class="auth-input" placeholder="DD/MM/YYYY">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+</body>
+</html>

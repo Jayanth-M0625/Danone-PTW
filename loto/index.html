@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LOTO/Line Break Permit</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .checklist-table th { height: 5mm; font-size: 8px; }
+    .checklist-row { height: 5.1mm !important; }
+    .closeout-table td { height: 8.8mm !important; }
+  </style>
+</head>
+<body>
+  <div class="permit-container">
+    
+    <!-- HEADER -->
+    <header class="header-section">
+      <div class="header-logo">
+        <img src="images/logo.png" alt="DANONE LOGO">
+      </div>
+      <div class="header-title-container">
+        <h1 class="header-title">LOTO / LINE BREAK PERMIT</h1>
+        <div class="header-subtitle">लॉटो / लाइन ब्रेक अनुमति पत्र</div>
+      </div>
+      <div class="header-meta">
+        
+        <div class="meta-row">
+          <span class="meta-label">Permit No:</span>
+          <input type="text" class="meta-value" placeholder="..........................................">
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Date of Issue:</span>
+          <input type="text" class="meta-value" placeholder="DD/MM/YYYY">
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Valid From:</span>
+          <input type="text" class="meta-value" placeholder="HH:MM hrs">
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Valid Until:</span>
+          <input type="text" class="meta-value" placeholder="HH:MM hrs">
+        </div>
+      </div>
+    </header>
+    
+    
+    <!-- PERMIT INFORMATION -->
+    <section class="info-section">
+      <div class="form-grid" style="grid-template-columns: 1fr 1fr 1fr 1fr; height: 9mm;">
+        <div class="field-box">
+          <label class="field-label">Location / Area <span class="field-label-hindi">स्थान / क्षेत्र</span></label>
+          <input type="text" class="field-value">
+        </div>
+        <div class="field-box">
+          <label class="field-label">Department <span class="field-label-hindi">विभाग</span></label>
+          <input type="text" class="field-value">
+        </div>
+        <div class="field-box">
+          <label class="field-label">HIRA/JSA Ref No. <span class="field-label-hindi">हिरा/जेएसए संदर्भ संख्या</span></label>
+          <input type="text" class="field-value">
+        </div>
+        <div class="field-box">
+          <label class="field-label">Equipment / Line <span class="field-label-hindi">उपकरण / लाइन</span></label>
+          <input type="text" class="field-value">
+        </div>
+      </div>
+      
+      <div class="form-grid" style="grid-template-columns: 2fr 1fr 1fr; height: 9mm;">
+        <div class="field-box">
+          <label class="field-label">Description of Work <span class="field-label-hindi">कार्य का विवरण</span></label>
+          <input type="text" class="field-value">
+        </div>
+        <div class="field-box">
+          <label class="field-label">Contractor / Vendor <span class="field-label-hindi">ठेकेदार / विक्रेता</span></label>
+          <input type="text" class="field-value">
+        </div>
+        <div class="field-box">
+          <label class="field-label">Isolation Point <span class="field-label-hindi">पृथक बिंदु (Isolation Point)</span></label>
+          <input type="text" class="field-value">
+        </div>
+      </div>
+
+      <div class="form-grid" style="grid-template-columns: 1fr 1fr; height: 9mm;">
+        <div class="field-box">
+          <label class="field-label">Supervisor Name <span class="field-label-hindi">पर्यवेक्षक का नाम</span></label>
+          <input type="text" class="field-value">
+        </div>
+        <div class="field-box">
+          <label class="field-label">LOTO Reference No. <span class="field-label-hindi">लॉटो संदर्भ संख्या</span></label>
+          <input type="text" class="field-value">
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- PPE GRID SECTION -->
+    <section class="ppe-section">
+      <div class="section-header">
+        <span>Personal Protective Equipment Requirements (specify type)</span>
+        <span class="hindi-header">व्यक्तिगत सुरक्षा उपकरण आवश्यकताएं (प्रकार बताएं)</span>
+      </div>
+      <div class="ppe-grid">
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/helmet.jpg" alt="Helmet"></div>
+          <span class="ppe-label-en">Helmet</span>
+          <span class="ppe-label-hi">सुरक्षा हेलमेट</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/shoes.jpg" alt="Shoes"></div>
+          <span class="ppe-label-en">Safety Shoes</span>
+          <span class="ppe-label-hi">सुरक्षा जूते</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/goggles.jpg" alt="Goggles"></div>
+          <span class="ppe-label-en">Goggles</span>
+          <span class="ppe-label-hi">सुरक्षा चश्मा</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/shield.jpg" alt="Face Shield"></div>
+          <span class="ppe-label-en">Face Shield</span>
+          <span class="ppe-label-hi">फेस शील्ड</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/gloves.jpg" alt="Gloves"></div>
+          <span class="ppe-label-en">Gloves</span>
+          <span class="ppe-label-hi">दस्ताने</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/earmuff.jpg" alt="Ear Muff"></div>
+          <span class="ppe-label-en">Ear Muff</span>
+          <span class="ppe-label-hi">इयर मफ</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/mask.jpg" alt="Resp. Mask"></div>
+          <span class="ppe-label-en">Resp. Mask</span>
+          <span class="ppe-label-hi">श्वसन मास्क</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/harness.jpg" alt="Harness"></div>
+          <span class="ppe-label-en">Harness</span>
+          <span class="ppe-label-hi">सुरक्षा हार्नेस</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/scba.jpg" alt="SCBA"></div>
+          <span class="ppe-label-en">SCBA</span>
+          <span class="ppe-label-hi">एससीबीए</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/others.jpg" alt="Others"></div>
+          <span class="ppe-label-en">Others</span>
+          <span class="ppe-label-hi">अन्य</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- MAIN CONTENT SPLIT -->
+    <div class="main-content-split">
+      <section class="checklist-container">
+        <table class="checklist-table">
+          <thead>
+            <tr>
+              <th class="col-no">No</th>
+              <th class="col-desc">LOTO Safety Checklist / लॉटो सुरक्षा चेकलिस्ट</th>
+              <th class="col-yes">Yes</th>
+              <th class="col-na">N/A</th>
+              <th class="col-photo">Photo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="section-row">
+              <td colspan="5">GENERAL SAFETY CHECKS / सामान्य सुरक्षा जांच</td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">1</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Is the area free from spillage?</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">क्या क्षेत्र स्पिलेज (रिसाव) से मुक्त है?</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo01.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">2</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Warning sign posted in the location.</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">चेतावनी चिन्ह कार्यस्थल पर प्रदर्शित किए गए हैं।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo02.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">3</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Barricading arranged around work area</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">कार्य क्षेत्र के चारों ओर बैरिकेडिंग की व्यवस्था की गई है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo03.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">4</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">LOTO procedure followed: All energy identified and isolated. List type: ______</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">लॉटो (LOTO) प्रक्रिया का पालन किया गया: सभी ऊर्जा स्रोतों की पहचान कर पृथक किया गया।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo04.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">5</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Trained Person deployed to execute the activity.</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">गतिविधि को निष्पादित करने के लिए प्रशिक्षित व्यक्ति को तैनात किया गया है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo05.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">6</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Fire extinguisher provided in the work area</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">कार्य क्षेत्र में उपयुक्त अग्निशामक यंत्र की व्यवस्था की गई है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo06.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="section-row">
+              <td colspan="5">⚡ELECTRICAL ISOLATION CHECKS / विद्युत पृथक्करण जांच</td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">7</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Power supply isolated before starting work</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">कार्य शुरू करने से पहले बिजली की आपूर्ति बंद कर दी गई है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo07.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">8</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Zero energy verified (Test Before Touch performed)</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">शून्य ऊर्जा सत्यापित की गई है (टच करने से पहले बिजली की अनुपस्थिति का परीक्षण किया गया)।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo08.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">9</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">All electrical wires and circuits disconnected and tagged out.</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">सभी विद्युत तारों और सर्किटों को डिस्कनेक्ट कर दिया गया है और टैग (LOTO) लगाया गया है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo09.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">10</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Breaker of connected L.T Panel switched off and earthing provided.</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">संबंधित एल.टी. पैनल का ब्रेकर बंद कर दिया गया है और अर्थिंग प्रदान की गई है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo10.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">11</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Only trained and authorized electrician assigned</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">केवल प्रशिक्षित और अधिकृत इलेक्ट्रीशियन को नियुक्त किया गया है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo11.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">12</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">No work being carried out on live circuits</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">चालू (लाइव) सर्किट पर कोई काम नहीं किया जा रहा है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo12.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">13</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Insulated tools used for electrical work</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">विद्युत कार्य के लिए केवल इंसुलेटेड (अवरोधित) उपकरणों का उपयोग किया जा रहा है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo13.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">14</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Proper earthing / grounding ensured on machine</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">मशीन/उपकरण पर उचित अर्थिंग/ग्राउंडिंग सुनिश्चित की गई है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo14.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">15</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Work area dry and free from wet conditions</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">कार्य क्षेत्र सूखा है और वहां कोई गीली स्थिति नहीं है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo15.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">16</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Class A Contractor deployed for HT activity.</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">क्लास ए (HT) कार्यों के लिए श्रेणी-ए ठेकेदार को तैनात किया गया है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo16.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">17</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">LOTO Manager name checked: __________________</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">लॉटो प्रबंधक का नाम जांचा गया: __________________</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo17.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">18</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Isolator name checked: ___________________</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">आइसोलेटर (पृथककर्ता) का नाम जांचा गया: ___________________</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo18.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">19</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">LOTO Specialist name checked: __________________</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">लॉटो विशेषज्ञ का नाम जांचा गया: __________________</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo19.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">20</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Valid license available to work</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">कार्य करने के लिए श्रमिकों के पास वैध लाइसेंस उपलब्ध है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo20.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="section-row">
+              <td colspan="5">PROCESS / LINE BREAK CHECKS</td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">21</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">All process energy sources isolated</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">सभी प्रोसेस एनर्जी सोर्स अलग कर दिए गए हैं।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo21.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">22</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Line drained and depressurized</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">लाइन खाली की गई और उसका दबाव कम किया गया।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo22.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">23</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Valves locked and tagged, Mechanical isolation/blinding completed</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">वॉल्व लॉक और टैग किए गए, मैकेनिकल आइसोलेशन/ब्लाइंडिंग पूरी हो गई।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo23.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">24</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Isolation verified before work by Mr. __________________</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">श्री __________________ द्वारा कार्य से पहले आइसोलेशन की पुष्टि की गई।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo24.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">25</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Valid license available to work on process line</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">प्रक्रिया लाइन पर काम करने के लिए वैध अनुमति/लाइसेंस उपलब्ध है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo25.jpg" alt="P"></div></td>
+            </tr>
+            <tr class="checklist-row"  >
+              <td class="col-no">26</td>
+              <td class="col-desc">
+                <div class="checklist-desc">
+                  <span class="desc-en" style="font-size:7.2px; line-height:1">Area safe from hazardous release of fluids/gases</span>
+                  <span class="desc-hi" style="font-size:6.8px; color:#555; line-height:1">तरल पदार्थ/गैसों के किसी भी खतरनाक रिसाव से क्षेत्र पूरी तरह सुरक्षित है।</span>
+                </div>
+              </td>
+              <td class="col-yes"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-na"><span class="check-blank-line" style="width:10px; height:8px;"><input type="text"></span></td>
+              <td class="col-photo"><div class="photo-box" style="height:4.6mm;"><img src="images/photo26.jpg" alt="P"></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <aside class="right-panel">
+        <!-- CARD 1: CLOSE OUT CHECKLIST -->
+        <div class="right-card linebreak-card">
+
+          <div class="card-title linebreak-title">
+            <span>LINE BREAK / PROCESS ISOLATION</span>
+            <span class="hindi-text">लाइन ब्रेक / प्रक्रिया पृथक्करण</span>
+          </div>
+
+          <table class="linebreak-table">
+            <thead>
+              <tr>
+                <th style="width:10%">No</th>
+                <th style="width:70%">Checklist / विवरण</th>
+                <th style="width:10%">Yes</th>
+                <th style="width:10%">N/A</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td>1</td>
+                <td>
+                  <span class="desc-en">All process energy sources isolated</span>
+                  <span class="desc-hi">सभी प्रोसेस एनर्जी सोर्स अलग किए गए हैं</span>
+                </td>
+                <td><span class="check-blank-line"><input></span></td>
+                <td><span class="check-blank-line"><input></span></td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td>
+                  <span class="desc-en">Line drained and depressurized</span>
+                  <span class="desc-hi">लाइन खाली की गई और दबाव मुक्त किया गया</span>
+                </td>
+                <td><span class="check-blank-line"><input></span></td>
+                <td><span class="check-blank-line"><input></span></td>
+              </tr>
+
+              <tr>
+                <td>3</td>
+                <td>
+                  <span class="desc-en">Valves locked & tagged, mechanical isolation done</span>
+                  <span class="desc-hi">वाल्व लॉक व टैग किए गए, मैकेनिकल आइसोलेशन पूर्ण</span>
+                </td>
+                <td><span class="check-blank-line"><input></span></td>
+                <td><span class="check-blank-line"><input></span></td>
+              </tr>
+
+              <tr>
+                <td>4</td>
+                <td>
+                  <span class="desc-en">Isolation verified by: __________</span>
+                  <span class="desc-hi">आइसोलेशन सत्यापित किया गया: __________</span>
+                </td>
+                <td><span class="check-blank-line"><input></span></td>
+                <td><span class="check-blank-line"><input></span></td>
+              </tr>
+
+              <tr>
+                <td>5</td>
+                <td>
+                  <span class="desc-en">Area safe from hazardous release of fluids/gases</span>
+                  <span class="desc-hi">तरल/गैस रिसाव से क्षेत्र सुरक्षित है</span>
+                </td>
+                <td><span class="check-blank-line"><input></span></td>
+                <td><span class="check-blank-line"><input></span></td>
+              </tr>
+
+              <tr>
+                <td>6</td>
+                <td>
+                  <span class="desc-en">Proper PPE used during line break activity</span>
+                  <span class="desc-hi">लाइन ब्रेक के दौरान उचित PPE का उपयोग किया गया</span>
+                </td>
+                <td><span class="check-blank-line"><input></span></td>
+                <td><span class="check-blank-line"><input></span></td>
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+        <div class="right-card closeout-card">
+          <div class="card-title">
+            <span>Permit Close Out Checklist</span>
+            <span class="hindi-text">परमिट बंद करने की चेकलिस्ट</span>
+          </div>
+          <table class="closeout-table">
+            <thead>
+              <tr>
+                <th style="width: 10%">No</th>
+                <th style="width: 70%">Checklist Item / विवरण</th>
+                <th style="width: 10%">Yes</th>
+                <th style="width: 10%">N/A</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td style="text-align: center">1</td>
+                <td>
+                  <span class="closeout-desc" style="font-size:7.5px;">Work completed satisfactorily & area cleaned</span>
+                  <span class="closeout-desc-hi" style="font-size:7px;">कार्य संतोषजनक ढंग से पूरा हुआ और क्षेत्र साफ किया गया</span>
+                </td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+              </tr>
+              <tr>
+                <td style="text-align: center">2</td>
+                <td>
+                  <span class="closeout-desc" style="font-size:7.5px;">All tools/equipment removed</span>
+                  <span class="closeout-desc-hi" style="font-size:7px;">सभी उपकरण/सामग्री हटा दिए गए हैं</span>
+                </td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+              </tr>
+              <tr>
+                <td style="text-align: center">3</td>
+                <td>
+                  <span class="closeout-desc" style="font-size:7.5px;">Other Relevant Permit closed</span>
+                  <span class="closeout-desc-hi" style="font-size:7px;">अन्य संबंधित परमिट बंद कर दिए गए हैं</span>
+                </td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+              </tr>
+              <tr>
+                <td style="text-align: center">4</td>
+                <td>
+                  <span class="closeout-desc" style="font-size:7.5px;">Waste segregation and disposal done</span>
+                  <span class="closeout-desc-hi" style="font-size:7px;">कचरा पृथक्करण और निपटान किया गया</span>
+                </td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+              </tr>
+              <tr>
+                <td style="text-align: center">5</td>
+                <td>
+                  <span class="closeout-desc" style="font-size:7.5px;">LOTO locks and tags removed, verified by: ___________</span>
+                  <span class="closeout-desc-hi" style="font-size:7px;">लॉटो ताले और टैग हटा दिए गए हैं, सत्यापित कर्ता: ___________</span>
+                </td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+                <td style="text-align: center"><span class="check-blank-line"><input type="text"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </aside>
+    </div>
+
+    
+    <!-- BOTTOM AUTHORIZATION MATRIX -->
+    <section class="auth-section">
+      <div class="section-header">
+        <span>AUTHORIZATION MATRIX</span>
+        <span class="hindi-header">प्राधिकरण मैट्रिक्स (हस्ताक्षर अनुभाग)</span>
+      </div>
+      <div class="auth-grid" style="grid-template-columns: repeat(5, 1fr)">
+        
+        <div class="auth-box">
+          <div class="auth-box-title">Permit Initiator<br><span style="font-weight:normal;font-size:7px;color:#777">परमिट प्रारंभकर्ता</span></div>
+          <div class="auth-field">
+            <span class="auth-label">Name:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Sign:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Date:</span>
+            <input type="text" class="auth-input" placeholder="DD/MM/YYYY">
+          </div>
+        </div>
+        <div class="auth-box">
+          <div class="auth-box-title">Permit Authorizer<br><span style="font-weight:normal;font-size:7px;color:#777">परमिट प्राधिकरणकर्ता</span></div>
+          <div class="auth-field">
+            <span class="auth-label">Name:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Sign:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Date:</span>
+            <input type="text" class="auth-input" placeholder="DD/MM/YYYY">
+          </div>
+        </div>
+        <div class="auth-box">
+          <div class="auth-box-title">Permit User<br><span style="font-weight:normal;font-size:7px;color:#777">परमिट उपयोगकर्ता</span></div>
+          <div class="auth-field">
+            <span class="auth-label">Name:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Sign:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Date:</span>
+            <input type="text" class="auth-input" placeholder="DD/MM/YYYY">
+          </div>
+        </div>
+        <div class="auth-box">
+          <div class="auth-box-title">Contractor SO<br><span style="font-weight:normal;font-size:7px;color:#777">ठेकेदार सुरक्षा अधिकारी</span></div>
+          <div class="auth-field">
+            <span class="auth-label">Name:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Sign:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Date:</span>
+            <input type="text" class="auth-input" placeholder="DD/MM/YYYY">
+          </div>
+        </div>
+        <div class="auth-box">
+          <div class="auth-box-title">Danone SO<br><span style="font-weight:normal;font-size:7px;color:#777">डैनोन सुरक्षा अधिकारी</span></div>
+          <div class="auth-field">
+            <span class="auth-label">Name:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Sign:</span>
+            <input type="text" class="auth-input">
+          </div>
+          <div class="auth-field">
+            <span class="auth-label">Date:</span>
+            <input type="text" class="auth-input" placeholder="DD/MM/YYYY">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+</body>
+</html>
