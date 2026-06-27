@@ -1,10 +1,10 @@
 /* Base design variables */
 :root {
-  --blue: #0a3b8c;
-  --lightblue: #dce8fa;
+  --primary: #4d4d4d;
+  --primary-light: #e2e2e2;
   --border: #8aa5d6;
-  --red: #b71c1c;
-  --gray: #f7f9fc;
+  --background: #f7f9fc;
+  --text: #333;
 }
 
 /* Page Setup for Print & Display */
@@ -45,7 +45,7 @@ html, body {
 
 /* Utility layout components */
 .section-header {
-  background-color: var(--blue);
+  background-color: var(--primary);
   color: #fff;
   font-size: 11px;
   font-weight: bold;
@@ -103,7 +103,7 @@ html, body {
 .field-value {
   font-size: 9px;
   font-weight: bold;
-  color: var(--blue);
+  color: var(--primary);
   width: 100%;
   border: none;
   background: transparent;
@@ -134,7 +134,7 @@ html, body {
 
 .line-input:focus {
   border-bottom-style: solid;
-  border-bottom-color: var(--blue);
+  border-bottom-color: var(--primary);
 }
 
 /* HEADER SECTION */
@@ -142,7 +142,7 @@ html, body {
   display: grid;
   grid-template-columns: 40mm 1fr 50mm;
   align-items: center;
-  border-bottom: 2px solid var(--blue);
+  border-bottom: 2px solid var(--primary);
   height: 22mm;
   padding: 2px 4px;
 }
@@ -168,7 +168,7 @@ html, body {
 }
 
 .header-title {
-  color: var(--blue);
+  color: var(--primary);
   font-size: 19px;
   font-weight: 900;
   letter-spacing: 0.5px;
@@ -212,7 +212,7 @@ html, body {
 
 .meta-value {
   font-weight: bold;
-  color: var(--blue);
+  color: var(--primary);
   text-align: right;
   border: none;
   background: transparent;
@@ -293,7 +293,7 @@ html, body {
 .ppe-label-en {
   font-size: 7.5px;
   font-weight: bold;
-  color: var(--blue);
+  color: var(--primary);
   line-height: 1;
 }
 
@@ -360,7 +360,7 @@ html, body {
 }
 
 .checklist-table th {
-  background-color: var(--blue);
+  background-color: var(--primary);
   color: #fff;
   font-size: 9px;
   font-weight: bold;
@@ -462,7 +462,7 @@ html, body {
 }
 
 .card-title {
-  background-color: var(--blue);
+  background-color: var(--primary);
   color: #fff;
   font-size: 9px;
   font-weight: bold;
@@ -498,8 +498,8 @@ html, body {
 }
 
 .atmospheric-table th {
-  background-color: var(--lightblue);
-  color: var(--blue);
+  background-color: var(--primary-light);
+  color: var(--primary);
   font-weight: bold;
   height: 6mm;
 }
@@ -544,8 +544,8 @@ html, body {
 }
 
 .entrant-table th {
-  background-color: var(--lightblue);
-  color: var(--blue);
+  background-color: var(--primary-light);
+  color: var(--primary);
   font-weight: bold;
   height: 6mm;
 }
@@ -589,8 +589,8 @@ html, body {
 }
 
 .closeout-table th {
-  background-color: var(--lightblue);
-  color: var(--blue);
+  background-color: var(--primary-light);
+  color: var(--primary);
   font-weight: bold;
   height: 6mm;
   text-align: center;
@@ -639,7 +639,7 @@ html, body {
 .auth-box-title {
   font-size: 8px;
   font-weight: bold;
-  color: var(--blue);
+  color: var(--primary);
   border-bottom: 1px solid #ddd;
   padding-bottom: 1px;
   line-height: 1.1;
@@ -677,3 +677,9 @@ html, body {
 .hindi-text {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Rounded visual updates */
+.permit-container { border-radius: 6px; overflow: hidden; }
+.section-header, .field-box, .ppe-icon, .photo-box, .right-card, .card-title, .auth-box { border-radius: 4px; }
+.photo-box { overflow: hidden; }
+.checklist-table th { border-radius: 4px 4px 0 0; }
