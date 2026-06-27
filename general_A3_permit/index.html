@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combined Work Permit – Hot / Height / General</title>
+  <style>
+    @page { size: A3 landscape; margin: 5mm; }
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      font-size: 12px;            /* scaled up to 12px */
+      color: #111;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .permit-wrapper { width: 410mm; margin: 0 auto; }
+
+    .card {
+      border: none; border-radius: 0;
+      margin-bottom: 2px; padding: 2px 0; background: #fff;
+      page-break-inside: avoid; break-inside: avoid;
+    }
+
+    .card-header {
+      color: #fff; font-weight: bold; padding: 2px 6px; font-size: 13px; /* scaled up to 13px */
+      display: flex; justify-content: space-between; align-items: center;
+      border-radius: 2px; margin-bottom: 2px;
+    }
+
+    .hi { font-family: 'Mangal', sans-serif; font-size: 10px; font-weight: normal; } /* scaled up to 10px */
+    .card-header .hi { color: #fff; }
+
+    input[type="text"] {
+      border: none; border-bottom: 1px dotted #555;
+      font-size: 12px; padding: 0 0 1px 0; outline: none;
+      background: transparent; width: 100%;
+    }
+
+    /* ── HEADER ── */
+    .header-grid {
+      display: grid; grid-template-columns: 50px 1fr auto;
+      gap: 8px; align-items: center;
+      border-bottom: 1px solid #ccc; padding-bottom: 2px; margin-bottom: 2px;
+    }
+    .logo-box img { height: 34px; }
+    .permit-title { text-align: center; }
+    .permit-title h1 {
+      margin: 0; font-size: 18px; letter-spacing: 0.5px; line-height: 1.1;
+      background: linear-gradient(90deg, #2e7d32, #e65100, #1565c0);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .permit-title .subtitle { font-size: 12px; color: #555; font-weight: bold; }
+    .meta-grid { display: grid; grid-template-columns: repeat(2, 140px); gap: 3px; }
+    .meta-row { display: flex; align-items: center; font-size: 12px; }
+    .meta-label { font-weight: bold; white-space: nowrap; margin-right: 3px; width: 68px; display: inline-block; }
+
+    /* ── PERMIT TYPE CHIPS ── */
+    .type-selector { display: flex; gap: 14px; padding: 2px 4px; align-items: center; font-weight: bold; font-size: 12px; }
+    .type-chip { display: flex; align-items: center; gap: 4px; padding: 2px 7px; border-radius: 10px; border: 1.5px solid currentColor; }
+    .type-chip.general { color: #2e7d32; background: #f1f8e9; }
+    .type-chip.hot     { color: #bf360c; background: #fbe9e7; }
+    .type-chip.height  { color: #0d47a1; background: #e3f2fd; }
+
+    /* ── FIELD GRIDS ── */
+    .field-grid { display: grid; gap: 4px; margin-bottom: 2px; align-items: end; }
+    .field-box { display: flex; flex-direction: column; }
+    .field-label { font-weight: bold; font-size: 10.5px; color: #222; margin-bottom: 1px; }
+    .field-label .hi { color: #666; font-weight: normal; }
+
+    /* ── WORKMEN + PPE SIDE BY SIDE ── */
+    .workmen-ppe-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6px; margin-bottom: 3px;
+    }
+    .workmen-table { width: 100%; border-collapse: collapse; }
+    .workmen-table th, .workmen-table td { border: 1px solid #aaa; padding: 2px 3px; font-size: 11.5px; } /* scaled up to 11.5px */
+    .workmen-table th { background: #f5f5f5; font-weight: bold; text-align: center; }
+
+    /* ── PPE GRID (5 cols × 2 rows inside half-width - compacted to fit Workmen height) ── */
+    .ppe-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; padding: 1px; }
+    .ppe-cell {
+      border: 1px solid #ddd; border-radius: 3px; padding: 1px;
+      display: flex; flex-direction: column; align-items: center; text-align: center; background: #fafafa;
+    }
+    .ppe-icon { width: 100%; height: 38px; display: flex; align-items: center; justify-content: center; }
+    .ppe-icon img { max-height: 38px; max-width: 100%; object-fit: contain; }
+    .ppe-label-en { font-weight: bold; font-size: 8.5px; line-height: 1.1; } /* slightly reduced to avoid wrap */
+    .ppe-label-hi { font-size: 7.5px; color: #666; line-height: 1.1; }
+    .ppe-blank { width: 95%; margin-top: 1px; border-bottom: 1px solid #999; }
+    .ppe-blank input { border: none; background: transparent; outline: none; width: 100%; text-align: center; font-size: 8.5px; color: #b71c1c; padding: 0; height: 9px; }
+
+    /* ── THREE-COLUMN CHECKLIST ZONE ── */
+    .three-col-zone {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 4px; margin-bottom: 3px; align-items: stretch;
+    }
+    .checklist-col { border: 1px solid #ddd; border-radius: 3px; overflow: hidden; display: flex; flex-direction: column; }
+
+    .col-header { color: #fff; font-weight: bold; font-size: 13px; padding: 2px 6px; display: flex; justify-content: space-between; align-items: center; }
+    .col-header.general { background: linear-gradient(90deg, #1b5e20, #388e3c); }
+    .col-header.hot     { background: linear-gradient(90deg, #bf360c, #e64a19); }
+    .col-header.height  { background: linear-gradient(90deg, #0d47a1, #1976d2); }
+
+    .sub-header { font-size: 11px; font-weight: bold; padding: 2px 3px; border-bottom: 1px solid #ddd; }
+    .sub-header.general { background: #e8f5e9; color: #1b5e20; }
+    .sub-header.hot     { background: #fbe9e7; color: #bf360c; }
+    .sub-header.height  { background: #e3f2fd; color: #0d47a1; }
+
+    /* Checklist row: No | Desc | Yes | N/A | Photo */
+    .cl-item {
+      display: grid;
+      grid-template-columns: 16px 1fr 22px 22px 42px;
+      border-bottom: 1px solid #eee; min-height: 36px; align-items: stretch;
+    }
+    .cl-no {
+      text-align: center; font-weight: bold; font-size: 9.5px; padding: 1px;
+      display: flex; align-items: center; justify-content: center;
+      border-right: 1px solid #e0e0e0;
+    }
+    .cl-desc { padding: 1px 2px; font-size: 12px; line-height: 1.25; border-right: 1px solid #e0e0e0; display: flex; flex-direction: column; justify-content: center; }
+    .cl-desc .en { display: block; font-weight: 600; color: #111; }
+    .cl-desc .hi-text { display: block; font-size: 10.5px; color: #555; font-family: 'Mangal', sans-serif; }
+    .cl-check { text-align: center; padding: 1px; border-right: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; }
+    .cl-photo { text-align: center; padding: 1px; display: flex; align-items: center; justify-content: center; border-left: 1px solid #e0e0e0; background: #fafafa; }
+    .cl-photo img { height: 34px; width: 100%; object-fit: contain; display: block; }
+
+    .cl-header-row {
+      display: grid; grid-template-columns: 16px 1fr 22px 22px 42px;
+      font-size: 10px; font-weight: bold; background: #f0f0f0; border-bottom: 1px solid #ccc;
+    }
+    .cl-header-row div { padding: 1px 2px; border-right: 1px solid #ddd; text-align: center; }
+    .cl-header-row .cl-desc-h { text-align: left; }
+
+    /* ── INLINE SECTIONS ── */
+    .inline-section { border-top: 2px solid #ddd; margin-top: 2px; padding: 3px; font-size: 11px; }
+    .inline-section.green { border-top-color: #388e3c; background: #f9fff9; }
+    .inline-section.orange { border-top-color: #e64a19; background: #fff9f7; }
+
+    .inline-title { font-weight: bold; font-size: 11.5px; margin-bottom: 2px; }
+    .inline-title.green { color: #1b5e20; }
+    .inline-title.orange { color: #bf360c; }
+
+    .decl-inline { font-size: 11px; color: #333; margin: 0 0 2px; }
+    .decl-fields { display: flex; gap: 8px; }
+    .decl-field { flex: 1; display: flex; align-items: center; font-weight: bold; font-size: 11px; }
+    .decl-line { flex: 1; margin-left: 3px; }
+
+    .co-table { width: 100%; border-collapse: collapse; margin-top: 3px; }
+    .co-table td { border: 1px solid #ccc; padding: 2px 3px; font-size: 11px; color: #111; }
+    .co-table .co-num { width: 12px; font-weight: 700; text-align: center; }
+    .co-table .co-check { width: 14px; text-align: center; }
+    .co-table .co-hi { color: #333; font-family: 'Mangal', sans-serif; font-size: 9.5px; }
+
+    .fw-panel-inline { border: 1px solid #ffccbc; border-radius: 2px; padding: 2px; margin-bottom: 2px; }
+    .fw-panel-title { font-weight: bold; font-size: 10px; color: #bf360c; margin-bottom: 1px; }
+    .fw-row-inline { display: grid; grid-template-columns: 1fr 65px; gap: 2px; font-size: 10px; align-items: center; }
+    .fw-label { font-weight: bold; font-size: 9.5px; }
+
+    /* ── BOTTOM SECTION (Matrix & Handover/Closure) ── */
+    .auth-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; margin-top: 2px; }
+    .auth-box { border: 1px solid #bbb; border-radius: 3px; padding: 3px; background: #fafafa; }
+    .auth-box-title { font-weight: bold; font-size: 11px; text-align: center; border-bottom: 1px solid #ddd; padding-bottom: 1px; margin-bottom: 2px; background: #f5f5f5; height: 20px; display: flex; flex-direction: column; justify-content: center; }
+    .auth-box-title .hi { color: #444; font-size: 9px; }
+    .auth-field { display: flex; align-items: center; margin-bottom: 1px; font-size: 10px; }
+    .auth-label { font-weight: bold; width: 30px; }
+    .auth-input { flex: 1; height: 11px; font-size: 10px; }
+    .auth-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+
+    .tbt-placeholder {
+      border: 2px dashed #aaa; border-radius: 4px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: #fafafa; color: #aaa; font-size: 14px; font-weight: bold;
+      gap: 5px; text-align: center; height: 100%; min-height: 100px;
+    }
+    .tbt-placeholder span { font-size: 9px; color: #bbb; }
+  </style>
+</head>
+<body>
+<div class="permit-wrapper">
+
+  <!-- ══ CARD 1: HEADER ══ -->
+  <div class="card">
+    <div class="header-grid">
+      <div class="logo-box"><img src="images/logo.png" alt="Danone Logo"></div>
+      <div class="permit-title">
+        <h1>HOT WORK / WORK AT HEIGHT / GENERAL WORK PERMIT</h1>
+        <div class="subtitle">हॉट वर्क / ऊँचाई पर कार्य / सामान्य कार्य अनुमति पत्र</div>
+      </div>
+      <div class="meta-grid" style="grid-template-columns: 140px;">
+        <div class="meta-row"><span class="meta-label">Permit No:</span><input type="text"></div>
+        <div class="meta-row"><span class="meta-label">Date of Issue:</span><input type="text"></div>
+      </div>
+    </div>
+    <div class="type-selector">
+      <strong>Permit Type / अनुमति प्रकार:</strong>
+      <label class="type-chip general"><input type="checkbox"> &nbsp;General Work (सामान्य कार्य)</label>
+      <label class="type-chip hot"><input type="checkbox"> &nbsp;Hot Work (गर्म कार्य)</label>
+      <label class="type-chip height"><input type="checkbox"> &nbsp;Work at Height (ऊँचाई पर कार्य)</label>
+    </div>
+    <div class="field-grid" style="grid-template-columns: 2fr 1fr 1fr 1fr; margin-top:2px;">
+      <div class="field-box"><label class="field-label">Location / Area <span class="hi">स्थान</span></label><input type="text"></div>
+      <div class="field-box"><label class="field-label">Department <span class="hi">विभाग</span></label><input type="text"></div>
+      <div class="field-box"><label class="field-label">HIRA / JSA Ref No.</label><input type="text"></div>
+      <div class="field-box"><label class="field-label">Other Permit Ref. <span class="hi">अन्य परमिट</span></label><input type="text"></div>
+    </div>
+    <div class="field-grid" style="grid-template-columns: 1.5fr 1.1fr 1.1fr 0.8fr 1fr 140px; margin-top:2px;">
+      <div class="field-box"><label class="field-label">Description of Work <span class="hi">कार्य विवरण</span></label><input type="text"></div>
+      <div class="field-box"><label class="field-label">Contractor / Vendor <span class="hi">ठेकेदार</span></label><input type="text"></div>
+      <div class="field-box"><label class="field-label">Supervisor Name <span class="hi">पर्यवेक्षक</span></label><input type="text"></div>
+      <div class="field-box"><label class="field-label">Approx Height (m) <span class="hi">ऊँचाई</span></label><input type="text"></div>
+      <div class="field-box"><label class="field-label">Explosive Meter Reading <span class="hi">विस्फोटक मीटर</span></label><input type="text"></div>
+      <div class="field-box" style="display: flex; flex-direction: column; gap: 3px; justify-content: flex-end;">
+        <div class="meta-row" style="font-size: 11px; align-items: center; margin-bottom: 2px;">
+          <span class="meta-label" style="width: 65px; font-weight: bold; margin-right: 0; font-size: 11px;">Valid From:</span>
+          <input type="text" class="meta-value" style="font-size: 11px; border: none; border-bottom: 1px dotted #555; text-align: left; width: 100%;">
+        </div>
+        <div class="meta-row" style="font-size: 11px; align-items: center; margin-bottom: 2px;">
+          <span class="meta-label" style="width: 65px; font-weight: bold; margin-right: 0; font-size: 11px;">Valid Until:</span>
+          <input type="text" class="meta-value" style="font-size: 11px; border: none; border-bottom: 1px dotted #555; text-align: left; width: 100%;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ WORKMEN + PPE SIDE BY SIDE ══ -->
+  <div class="workmen-ppe-row">
+
+    <!-- Left: Workmen -->
+    <div class="card" style="margin-bottom:0;">
+      <div class="card-header" style="background: linear-gradient(90deg,#37474f,#546e7a);">
+        <span>Names of Workmen &amp; Signs</span>
+        <span class="hi">कार्यकर्ताओं के नाम एवं हस्ताक्षर</span>
+      </div>
+      <table class="workmen-table">
+        <thead>
+          <tr>
+            <th style="width:23%">Name / नाम</th><th style="width:10.3%">Sign / ह०</th>
+            <th style="width:23%">Name / नाम</th><th style="width:10.3%">Sign / ह०</th>
+            <th style="width:23%">Name / नाम</th><th style="width:10.3%">Sign / ह०</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+          <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+          <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+          <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+          <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+          <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Right: PPE (5×2 grid in half width) -->
+    <div class="card" style="margin-bottom:0;">
+      <div class="card-header" style="background: linear-gradient(90deg,#4a148c,#7b1fa2);">
+        <span>Personal Protective Equipment (specify type/NA)</span>
+        <span class="hi">व्यक्तिगत सुरक्षा उपकरण (प्रकार/एन.ए. निर्दिष्ट करें)</span>
+      </div>
+      <div class="ppe-grid">
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/helmet.jpg" alt="Helmet"></div>
+          <span class="ppe-label-en">Helmet</span><span class="ppe-label-hi">हेलमेट</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/shoes.jpg" alt="Safety Shoes"></div>
+          <span class="ppe-label-en">Safety Shoes</span><span class="ppe-label-hi">सुरक्षा जूते</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/goggles.jpg" alt="Goggles"></div>
+          <span class="ppe-label-en">Goggles / Face Shield</span><span class="ppe-label-hi">चश्मा / फेस शील्ड</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/gloves.jpg" alt="Gloves"></div>
+          <span class="ppe-label-en">Gloves</span><span class="ppe-label-hi">दस्ताने</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/apron.jpg" alt="FR Apron"></div>
+          <span class="ppe-label-en">FR Apron</span><span class="ppe-label-hi">अग्निरोधक एप्रन</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/harness.jpg" alt="Harness"></div>
+          <span class="ppe-label-en">Harness</span><span class="ppe-label-hi">हार्नेस</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/earmuff.jpg" alt="Ear Muff"></div>
+          <span class="ppe-label-en">Ear Muff</span><span class="ppe-label-hi">इयर मफ</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/mask.jpg" alt="Resp. Mask"></div>
+          <span class="ppe-label-en">Resp. Mask</span><span class="ppe-label-hi">श्वसन मास्क</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/extinguisher.jpg" alt="Fire Extinguisher"></div>
+          <span class="ppe-label-en">Fire Extinguisher</span><span class="ppe-label-hi">अग्निशामक</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+        <div class="ppe-cell">
+          <div class="ppe-icon"><img src="images/others.jpg" alt="Others"></div>
+          <span class="ppe-label-en">Others</span><span class="ppe-label-hi">अन्य</span>
+          <div class="ppe-blank"><input type="text"></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end workmen-ppe-row -->
+
+  <!-- ══ THREE-COLUMN CHECKLIST ZONE ══ -->
+  <div class="three-col-zone">
+
+    <!-- ════ COL 1: GENERAL WORK ════ -->
+    <div class="checklist-col">
+      <div class="col-header general">
+        <span>General Work Checklist</span>
+        <span class="hi">सामान्य कार्य चेकलिस्ट</span>
+      </div>
+
+      <div class="sub-header general">General Pre-Work Checks / सामान्य पूर्व-कार्य जांच</div>
+      <div class="cl-header-row">
+        <div>No</div><div class="cl-desc-h">Checklist Item / जांच बिंदु</div><div>Yes</div><div>N/A</div><div>Photo</div>
+      </div>
+
+      <div class="cl-item">
+        <div class="cl-no">1</div>
+        <div class="cl-desc"><span class="en">Work area inspected; free from slip &amp; trip hazards.</span><span class="hi-text">कार्य क्षेत्र का निरीक्षण; फिसलन/ट्रिप खतरों से मुक्त।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_1_1.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">2</div>
+        <div class="cl-desc"><span class="en">Adequate lighting available.</span><span class="hi-text">पर्याप्त प्रकाश व्यवस्था उपलब्ध है।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_1_2.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">3</div>
+        <div class="cl-desc"><span class="en">Work area barricaded and signage in place (if required).</span><span class="hi-text">कार्य क्षेत्र की बैरिकेडिंग और संकेतक लगाए गए।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_1_3.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">4</div>
+        <div class="cl-desc"><span class="en">Emergency passage / exits identified and clear.</span><span class="hi-text">आपातकालीन मार्ग / निकास पहचाने गए और साफ हैं।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_1_4.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">5</div>
+        <div class="cl-desc"><span class="en">Hand tools visually inspected. Done By: ________</span><span class="hi-text">हाथ के औजारों का दृश्य निरीक्षण किया गया।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_1_5.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">6</div>
+        <div class="cl-desc"><span class="en">Ticked PPE available and in good condition.</span><span class="hi-text">चिह्नित पीपीई उपलब्ध और अच्छी स्थिति में है।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_1_6.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">7</div>
+        <div class="cl-desc"><span class="en">Workers briefed on safety precautions (TBT completed).</span><span class="hi-text">कार्यकर्ताओं को सुरक्षा सावधानियों की जानकारी दी गई।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_1_7.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">8</div>
+        <div class="cl-desc"><span class="en">Additional precautions communicated.</span><span class="hi-text">अतिरिक्त सावधानियां बताई गई हैं।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_1_8.png" alt=""></div>
+      </div>
+
+      <div class="sub-header general">Manual Lifting &amp; Shifting / मैनुअल उठाना-हटाना</div>
+      <div class="cl-item">
+        <div class="cl-no">1</div>
+        <div class="cl-desc"><span class="en">Load weight within safe limit or mechanical aid arranged.</span><span class="hi-text">भार सुरक्षित सीमा के भीतर या यांत्रिक सहायता की व्यवस्था।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_2_1.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">2</div>
+        <div class="cl-desc"><span class="en">Lifting route cleared of obstructions, slip and trip hazards.</span><span class="hi-text">उठाने का मार्ग बाधाओं और खतरों से मुक्त।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_2_2.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">3</div>
+        <div class="cl-desc"><span class="en">All personnel trained in manual handling and aware of lifting plan.</span><span class="hi-text">सभी कर्मचारी मैनुअल हैंडलिंग में प्रशिक्षित।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_2_3.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">4</div>
+        <div class="cl-desc"><span class="en">Load stable, securely packed, free from sharp edges.</span><span class="hi-text">भार स्थिर, सुरक्षित रूप से बंधा और नुकीले किनारों से मुक्त।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_2_4.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">5</div>
+        <div class="cl-desc"><span class="en">Pre-task risk assessment / TBT conducted; emergency arrangements communicated.</span><span class="hi-text">पूर्व-कार्य जोखिम मूल्यांकन किया गया; आपातकालीन व्यवस्था बताई गई।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_g_2_5.png" alt=""></div>
+      </div>
+
+      <!-- Authorization Matrix -->
+      <div class="card" style="margin-top: auto; margin-bottom: 3px; padding: 2px 0;">
+        <div class="card-header" style="background: linear-gradient(90deg,#0d47a1,#1565c0); font-size: 11px; padding: 1px 4px;">
+          <span>Authorization Matrix</span>
+          <span class="hi" style="font-size: 9px; color: #fff;">प्राधिकरण मैट्रिक्स</span>
+        </div>
+        <div class="auth-grid">
+          <div class="auth-box">
+            <div class="auth-box-title">Area Owner<br><span class="hi">क्षेत्र मालिक</span></div>
+            <div class="auth-field"><span class="auth-label">Name:</span><input type="text" class="auth-input"></div>
+            <div class="auth-field"><span class="auth-label">Sign:</span><input type="text" class="auth-input"></div>
+          </div>
+          <div class="auth-box">
+            <div class="auth-box-title">Permit Authorizer<br><span class="hi">प्राधिकरणकर्ता</span></div>
+            <div class="auth-field"><span class="auth-label">Name:</span><input type="text" class="auth-input"></div>
+            <div class="auth-field"><span class="auth-label">Sign:</span><input type="text" class="auth-input"></div>
+          </div>
+          <div class="auth-box">
+            <div class="auth-box-title">Permit User<br><span class="hi">परमिट उपयोगकर्ता</span></div>
+            <div class="auth-field"><span class="auth-label">Name:</span><input type="text" class="auth-input"></div>
+            <div class="auth-field"><span class="auth-label">Sign:</span><input type="text" class="auth-input"></div>
+          </div>
+          <div class="auth-box">
+            <div class="auth-box-title">Contractor SO<br><span class="hi">ठेकेदार SO</span></div>
+            <div class="auth-field"><span class="auth-label">Name:</span><input type="text" class="auth-input"></div>
+            <div class="auth-field"><span class="auth-label">Sign:</span><input type="text" class="auth-input"></div>
+          </div>
+          <div class="auth-box">
+            <div class="auth-box-title">Danone SO<br><span class="hi">डैनोन SO</span></div>
+            <div class="auth-field"><span class="auth-label">Name:</span><input type="text" class="auth-input"></div>
+            <div class="auth-field"><span class="auth-label">Sign:</span><input type="text" class="auth-input"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Permit Handover / Extension -->
+      <div class="card" style="margin-top: 3px; margin-bottom: 0; padding: 2px 0;">
+        <div class="card-header" style="background: linear-gradient(90deg,#7b1818,#c62828); font-size: 11px; padding: 1px 4px;">
+          <span>Permit Handover / Extension</span>
+          <span class="hi" style="font-size: 9px; color: #fff;">हैंडओवर / विस्तार</span>
+        </div>
+        <div class="auth-grid-2">
+          <div class="auth-box">
+            <div class="auth-box-title">Handed over from<br><span class="hi">From</span></div>
+            <div class="auth-field"><span class="auth-label">Name:</span><input type="text" class="auth-input"></div>
+            <div class="auth-field"><span class="auth-label">Sign:</span><input type="text" class="auth-input"></div>
+          </div>
+          <div class="auth-box">
+            <div class="auth-box-title">Handed over to<br><span class="hi">To</span></div>
+            <div class="auth-field"><span class="auth-label">Name:</span><input type="text" class="auth-input"></div>
+            <div class="auth-field"><span class="auth-label">Sign:</span><input type="text" class="auth-input"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Permit Closure -->
+      <div class="card" style="margin-top: 3px; margin-bottom: 0; padding: 2px 0;">
+        <div class="card-header" style="background: linear-gradient(90deg,#7b1818,#c62828); font-size: 11px; padding: 1px 4px;">
+          <span>Permit Closure</span>
+          <span class="hi" style="font-size: 9px; color: #fff;">परमिट बंद</span>
+        </div>
+        <div class="auth-grid-2">
+          <div class="auth-box">
+            <div class="auth-box-title">Area Owner<br><span class="hi">क्षेत्र मालिक</span></div>
+            <div class="auth-field"><span class="auth-label">Name:</span><input type="text" class="auth-input"></div>
+            <div class="auth-field"><span class="auth-label">Sign:</span><input type="text" class="auth-input"></div>
+          </div>
+          <div class="auth-box">
+            <div class="auth-box-title">Permit Authorizer<br><span class="hi">प्राधिकरणकर्ता</span></div>
+            <div class="auth-field"><span class="auth-label">Name:</span><input type="text" class="auth-input"></div>
+            <div class="auth-field"><span class="auth-label">Sign:</span><input type="text" class="auth-input"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Close Out Checklist -->
+      <div class="inline-section green" style="margin-top: 4px; margin-bottom: 2px; padding: 2px;">
+        <div class="inline-title green" style="font-size: 10px; margin-bottom: 1px;">Permit Close Out Checklist / परमिट बंद करने की चेकलिस्ट</div>
+        <table class="co-table">
+          <tr>
+            <td class="co-num">1</td>
+            <td style="font-size: 10px; padding: 1px 2px;">Work completed satisfactorily &amp; area cleaned. <span class="co-hi">कार्य पूरा; क्षेत्र साफ।</span></td>
+            <td class="co-check"><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td class="co-num">2</td>
+            <td style="font-size: 10px; padding: 1px 2px;">All tools / equipment removed; area isolation removed. <span class="co-hi">सभी उपकरण हटाए; आइसोलेशन हटाया।</span></td>
+            <td class="co-check"><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td class="co-num">3</td>
+            <td style="font-size: 10px; padding: 1px 2px;">Electrical power, utility services &amp; fire alarm system restored. <span class="co-hi">विद्युत सेवाएं और अग्नि अलार्म बहाल।</span></td>
+            <td class="co-check"><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td class="co-num">4</td>
+            <td style="font-size: 10px; padding: 1px 2px;">Other relevant permit closed. <span class="co-hi">अन्य संबंधित परमिट बंद।</span></td>
+            <td class="co-check"><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td class="co-num">5</td>
+            <td style="font-size: 10px; padding: 1px 2px;">Waste segregation and disposal done. <span class="co-hi">कचरा पृथक्करण और निपटान।</span></td>
+            <td class="co-check"><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td class="co-num">6</td>
+            <td style="font-size: 10px; padding: 1px 2px;">Post work LEL limits noted. <span class="co-hi">कार्य पश्चात LEL सीमाएं दर्ज।</span></td>
+            <td class="co-check"><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td class="co-num">7</td>
+            <td colspan="2" style="font-size: 8px; padding: 1px 2px;">If confined space: &nbsp; O₂___% &nbsp; LEL___% &nbsp; CO___ppm &nbsp; H₂S___ppm &nbsp; Tester:___________ &nbsp; Sign:___________</td>
+          </tr>
+        </table>
+      </div>
+    </div><!-- end col 1 -->
+
+    <!-- ════ COL 2: HOT WORK ════ -->
+    <div class="checklist-col">
+      <div class="col-header hot">
+        <span>Hot Work Safety Checklist</span>
+        <span class="hi">गर्म कार्य सुरक्षा चेकलिस्ट</span>
+      </div>
+      <div class="cl-header-row">
+        <div>No</div><div class="cl-desc-h">Checklist Item / जांच बिंदु</div><div>Yes</div><div>N/A</div><div>Photo</div>
+      </div>
+
+      <div class="cl-item">
+        <div class="cl-no">1</div>
+        <div class="cl-desc"><span class="en">No combustible material within 11 m; work area barricaded.</span><span class="hi-text">11 मीटर में ज्वलनशील सामग्री नहीं; क्षेत्र बैरिकेड।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_1.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">2</div>
+        <div class="cl-desc"><span class="en">Surface free from oil, grease &amp; dust.</span><span class="hi-text">सतह तेल, ग्रीस और धूल से मुक्त है।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_2.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">3</div>
+        <div class="cl-desc"><span class="en">Equipment drained, cleaned and vented.</span><span class="hi-text">उपकरण खाली, साफ और वेंट किया गया।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_3.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">4</div>
+        <div class="cl-desc"><span class="en">Pipelines / vessels / drains cleaned and protected.</span><span class="hi-text">पाइपलाइन / पोत / नाले साफ और संरक्षित।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_4.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">5</div>
+        <div class="cl-desc"><span class="en">Electrical / Mechanical / Pneumatic isolation completed. Type: _______</span><span class="hi-text">विद्युत / यांत्रिक / वायवीय आइसोलेशन पूर्ण। प्रकार: ________</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_5.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">6</div>
+        <div class="cl-desc"><span class="en">LOTO permit filled? List permit No.: _______</span><span class="hi-text">लॉटो परमिट भरा गया? परमिट नं.: ________</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_6.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">7</div>
+        <div class="cl-desc"><span class="en">Grinder wheel rated higher than grinder RPM.</span><span class="hi-text">ग्राइंडर व्हील की रेटिंग ग्राइंडर आरपीएम से अधिक।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_7.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">8</div>
+        <div class="cl-desc"><span class="en">Adequate ventilation provided.</span><span class="hi-text">वेंटीलेशन का उचित प्रावधान किया गया है।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_8.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">9</div>
+        <div class="cl-desc"><span class="en">Area covered with blanket / adequate water availability.</span><span class="hi-text">क्षेत्र कंबल से ढका; पर्याप्त पानी उपलब्ध।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_9.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">10</div>
+        <div class="cl-desc"><span class="en">Suitable fire extinguisher ready; trained fire fighter deployed. Type: ___</span><span class="hi-text">उपयुक्त अग्निशामक तैयार; प्रशिक्षित फायर फाइटर तैनात।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_10.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">11</div>
+        <div class="cl-desc"><span class="en">Flash back arrestor present for cutting / welding sets.</span><span class="hi-text">कटिंग/वेल्डिंग सेट के लिए फ्लैशबैक अरेस्टर उपस्थित।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_11.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">12</div>
+        <div class="cl-desc"><span class="en">Fire watcher assigned and briefed. Name: _________________</span><span class="hi-text">फायर वॉचर तैनात और जिम्मेदारियों से परिचित। नाम: ________</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_12.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">13</div>
+        <div class="cl-desc"><span class="en">Regulator, hoses, gauges, torch, cylinders in good condition.</span><span class="hi-text">रेगुलेटर, पाइप, टॉर्च, सिलेंडर अच्छी स्थिति में हैं।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_13.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">14</div>
+        <div class="cl-desc"><span class="en">Compressed gas cylinders leak-tested. Done by (name): ______</span><span class="hi-text">संपीड़ित गैस सिलेंडर की जांच और लीक टेस्ट किया गया।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_14.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">15</div>
+        <div class="cl-desc"><span class="en">Cylinders outside spark zone (&gt;6.1 m), secured upright and shielded.</span><span class="hi-text">सिलेंडर स्पार्क ज़ोन से बाहर, सुरक्षित सीधे और ढाल से सुरक्षित।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_15.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">16</div>
+        <div class="cl-desc"><span class="en">Welding / grinding machines earthed; cables in good condition.</span><span class="hi-text">वेल्डिंग/ग्राइंडिंग मशीनें अर्थ की गईं; केबल अच्छी स्थिति में।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_16.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">17</div>
+        <div class="cl-desc"><span class="en">Explosive meter test done? Reading: ___ Done By: ___ Time: ___</span><span class="hi-text">विस्फोटक मीटर परीक्षण। रीडिंग: ___ किसके द्वारा: ___ समय: ___</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_17.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">18</div>
+        <div class="cl-desc"><span class="en">Explosive meter calibration done? Due Date: ________</span><span class="hi-text">विस्फोटक मीटर कैलिब्रेशन किया गया? नियत तिथि: ________</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_18.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">19</div>
+        <div class="cl-desc"><span class="en">Trained person deployed to execute the activity.</span><span class="hi-text">गतिविधि के लिए प्रशिक्षित व्यक्ति तैनात किया गया।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_19.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">20</div>
+        <div class="cl-desc"><span class="en">Use metallic wire / workbench for cutting and welding activities.</span><span class="hi-text">कटिंग/वेल्डिंग के लिए धातु की तार या वर्कबेंच का उपयोग करें।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_20.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">21</div>
+        <div class="cl-desc"><span class="en">Other special precautions implemented: ___________________________</span><span class="hi-text">अन्य विशेष सावधानियां लागू की गई हैं।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_h_1_21.png" alt=""></div>
+      </div>
+
+      <!-- Side-by-side Fire Watch & Self Declaration -->
+      <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4px; margin-top: auto; margin-bottom: 2px;">
+        <!-- Fire Watch (inside Hot Work col) -->
+        <div class="inline-section orange" style="margin-top: 0; padding: 4px;">
+          <div class="inline-title orange" style="font-size: 11px; margin-bottom: 3px;">🔥 Fire Watch &amp; Monitoring</div>
+          <div class="fw-panel-inline" style="padding: 3px; margin-bottom: 3px;">
+            <div class="fw-panel-title" style="font-size: 10.5px; color: #bf360c; margin-bottom: 2px;">Fire Watch Arrangement / फायर वॉच व्यवस्था</div>
+            <div class="fw-row-inline" style="font-size: 10.5px; grid-template-columns: 1fr 55px;">
+              <div><span class="fw-label" style="font-size: 10px;">Name:</span> <input type="text" style="font-size: 10.5px;"></div>
+              <div><input type="text" placeholder="Sign" style="font-size: 10px; text-align: center;"></div>
+            </div>
+          </div>
+          <div class="fw-panel-inline" style="padding: 3px; margin-bottom: 3px;">
+            <div class="fw-panel-title" style="font-size: 10.5px; color: #bf360c; margin-bottom: 2px;">Post Hot Work – 1 Hr / 1 घंटे की निगरानी</div>
+            <div class="fw-row-inline" style="font-size: 10.5px; grid-template-columns: 1fr 55px;">
+              <div><span class="fw-label" style="font-size: 10px;">Name:</span> <input type="text" style="font-size: 10.5px;"></div>
+              <div><input type="text" placeholder="Time/Sign" style="font-size: 10px; text-align: center;"></div>
+            </div>
+          </div>
+          <div class="fw-panel-inline" style="padding: 3px; margin-bottom: 0;">
+            <div class="fw-panel-title" style="font-size: 10.5px; color: #bf360c; margin-bottom: 2px;">Post Hot Work – 3 Hr / 3 घंटे की निगरानी</div>
+            <div class="fw-row-inline" style="font-size: 10.5px; grid-template-columns: 1fr 55px;">
+              <div><span class="fw-label" style="font-size: 10px;">Name:</span> <input type="text" style="font-size: 10.5px;"></div>
+              <div><input type="text" placeholder="Time/Sign" style="font-size: 10px; text-align: center;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Self Declaration -->
+        <div class="inline-section green" style="margin-top: 0; padding: 4px; display: flex; flex-direction: column;">
+          <div class="inline-title green" style="font-size: 11px; margin-bottom: 3px;">Self Declaration / स्वघोषणा</div>
+          <p class="decl-inline" style="font-size: 10.5px; line-height: 1.3; margin-bottom: 5px;">I understand the work, hazards, and risks involved. Required controls have been implemented and communicated for safe execution.</p>
+          <div style="display: flex; flex-direction: column; gap: 4px; margin-top: auto;">
+            <div class="decl-field" style="font-size: 10.5px; display: flex; align-items: center;">Name: <span class="decl-line"><input type="text" style="font-size: 10.5px;"></span></div>
+            <div class="decl-field" style="font-size: 10.5px; display: flex; align-items: center;">Sign: <span class="decl-line"><input type="text" style="font-size: 10.5px;"></span></div>
+            <div class="decl-field" style="font-size: 10.5px; display: flex; align-items: center;">Date: <span class="decl-line"><input type="text" style="font-size: 10.5px;"></span></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- end col 2 -->
+
+    <!-- ════ COL 3: HEIGHT WORK ════ -->
+    <div class="checklist-col">
+      <div class="col-header height">
+        <span>Work at Height Checklist</span>
+        <span class="hi">ऊँचाई पर कार्य चेकलिस्ट</span>
+      </div>
+
+      <div class="sub-header height">General Height Checks / सामान्य ऊँचाई जांच</div>
+      <div class="cl-header-row">
+        <div>No</div><div class="cl-desc-h">Checklist Item / जांच बिंदु</div><div>Yes</div><div>N/A</div><div>Photo</div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">1</div>
+        <div class="cl-desc"><span class="en">Safe, stable access; area below barricaded with warning signage.</span><span class="hi-text">सुरक्षित और स्थिर पहुँच; नीचे क्षेत्र बैरिकेड और संकेतक।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_1_1.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">2</div>
+        <div class="cl-desc"><span class="en">Tools and tackles certified; tags available.</span><span class="hi-text">उपकरण और टैकल प्रमाणित हैं; टैग उपलब्ध।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_1_2.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">3</div>
+        <div class="cl-desc"><span class="en">Harness lifeline certification valid. Validity date: ___________</span><span class="hi-text">हार्नेस लाइफलाइन प्रमाणन वैध। वैधता तिथि: ___________</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_1_3.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">4</div>
+        <div class="cl-desc"><span class="en">Full body harness inspected and worn correctly. Harness No.: ______</span><span class="hi-text">फुल बॉडी हार्नेस का निरीक्षण किया और सही तरीके से पहना।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_1_4.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">5</div>
+        <div class="cl-desc"><span class="en">Anchorage point for safety belt provided and used.</span><span class="hi-text">सुरक्षा बेल्ट के लिए एंकरेज पॉइंट प्रदान किया और उपयोग किया।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_1_5.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">6</div>
+        <div class="cl-desc"><span class="en">Worker medically fit for high-altitude work (Vertigo/Epilepsy certificate).</span><span class="hi-text">कर्मचारी ऊँचाई पर काम के लिए चिकित्सकीय रूप से उपयुक्त।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_1_6.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">7</div>
+        <div class="cl-desc"><span class="en">Cloth shoulder bag used for carrying tools (MCA &amp; HCA area).</span><span class="hi-text">एमसीए और एचसीए क्षेत्र में औजार ले जाने के लिए कपड़े का बैग।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_1_7.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">8</div>
+        <div class="cl-desc"><span class="en">Only trained &amp; authorized persons deployed.</span><span class="hi-text">केवल प्रशिक्षित और अधिकृत व्यक्तियों को तैनात किया गया।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_1_8.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">9</div>
+        <div class="cl-desc"><span class="en">Contract supervisor present at work site till job is done.</span><span class="hi-text">कॉन्ट्रैक्ट सुपरवाइजर जब तक काम पूरा न हो, साइट पर मौजूद।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_1_9.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">10</div>
+        <div class="cl-desc"><span class="en">No harmful gases / fumes generated near work area.</span><span class="hi-text">कार्य क्षेत्र के पास कोई हानिकारक गैस या धुआं नहीं।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_1_10.png" alt=""></div>
+      </div>
+
+      <div class="sub-header height">Boom Lift / बूम लिफ्ट (if applicable / यदि लागू हो)</div>
+      <div class="cl-item">
+        <div class="cl-no">B1</div>
+        <div class="cl-desc"><span class="en">Elevated platform with secure handrail, mid-rail, and toe board.</span><span class="hi-text">ऊँचे प्लेटफॉर्म पर सुरक्षित रेलिंग, मिड-रेल और टो बोर्ड।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_2_1.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">B2</div>
+        <div class="cl-desc"><span class="en">Double lanyard with shock absorber; 100% tie-off maintained.</span><span class="hi-text">डबल लैनयार्ड और शॉक अवशोषक; 100% टाई-ऑफ बनाए रखा।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_2_2.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">B3</div>
+        <div class="cl-desc"><span class="en">Wind speed within safe limits. Assessed by: ____________</span><span class="hi-text">हवा की गति सुरक्षित सीमा के भीतर। मूल्यांकनकर्ता: ____________</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_2_3.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">B4</div>
+        <div class="cl-desc"><span class="en">Boom lift tires, hydraulics, controls inspected; tested before activity.</span><span class="hi-text">बूम लिफ्ट के टायर, हाइड्रॉलिक्स और नियंत्रण का निरीक्षण; परीक्षण किया।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_2_4.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">B5</div>
+        <div class="cl-desc"><span class="en">Ground area below boom lift barricaded.</span><span class="hi-text">बूम लिफ्ट के नीचे का क्षेत्र बैरिकेड किया गया।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_2_5.png" alt=""></div>
+      </div>
+
+      <div class="sub-header height">Ladder / सीढ़ी (if applicable / यदि लागू हो)</div>
+      <div class="cl-item">
+        <div class="cl-no">L1</div>
+        <div class="cl-desc"><span class="en">Ladder fastened to prevent toppling.</span><span class="hi-text">सीढ़ी को गिरने से रोकने के लिए बांधा गया है।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_3_1.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">L2</div>
+        <div class="cl-desc"><span class="en">Ladder extends 1 m / 3 rungs above landing. Angle of use 75°.</span><span class="hi-text">सीढ़ी लैंडिंग से 1 मीटर/3 पायदान ऊपर। 75° कोण।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_3_2.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">L3</div>
+        <div class="cl-desc"><span class="en">Ladders &amp; platforms inspected before use.</span><span class="hi-text">उपयोग करने से पहले सीढ़ी और प्लेटफार्मों का निरीक्षण किया।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_3_3.png" alt=""></div>
+      </div>
+
+      <div class="sub-header height">Scaffold / मचान (if applicable / यदि लागू हो)</div>
+      <div class="cl-item">
+        <div class="cl-no">S1</div>
+        <div class="cl-desc"><span class="en">Scaffold inspected &amp; tagged by Scaffold Authorizer.</span><span class="hi-text">मचान का निरीक्षण और स्कैफोल्ड अधिकारी द्वारा टैग किया।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_4_1.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">S2</div>
+        <div class="cl-desc"><span class="en">Tubes ≥40 mm dia; planks ≥30 mm thick, ≥400 mm wide, secured at both ends.</span><span class="hi-text">ट्यूब ≥40 मिमी व्यास; तख्ते ≥30 मिमी मोटे, ≥400 मिमी चौड़े।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_4_2.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">S3</div>
+        <div class="cl-desc"><span class="en">Base firm, level, base plates fitted. Width : Height ratio noted.</span><span class="hi-text">आधार मजबूत, समतल, बेस प्लेट लगाई। चौड़ाई:ऊँचाई अनुपात दर्ज।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_4_3.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">S4</div>
+        <div class="cl-desc"><span class="en">Tied to supporting structure; handrails, mid-rail, toe boards provided.</span><span class="hi-text">सहायक संरचना से बंधा; रेलिंग, मिड-रेल, टो बोर्ड।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_4_4.png" alt=""></div>
+      </div>
+      <div class="cl-item">
+        <div class="cl-no">S5</div>
+        <div class="cl-desc"><span class="en">No electrical hazard within 3 m. Hard barricading in vehicle movement areas.</span><span class="hi-text">3 मीटर के भीतर कोई विद्युत खतरा नहीं। वाहन क्षेत्र में बैरिकेडिंग।</span></div>
+        <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
+        <div class="cl-photo"><img src="images/image_H_4_5.png" alt=""></div>
+      </div>
+    </div><!-- end col 3 -->
+
+  </div><!-- end three-col-zone -->
+
+</div><!-- end permit-wrapper -->
+</body>
+</html>
