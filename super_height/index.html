@@ -263,6 +263,7 @@
       gap: 4px;                   /* reduced gap */
     }
 
+
     .left-card,
     .right-card {
       border: none;               /* removed border to pack space */
@@ -270,7 +271,7 @@
       background: transparent;
       padding: 0;
     }
-
+    
     .checklist-table {
       width: 100%;
       border-collapse: collapse;
@@ -469,24 +470,21 @@
     }
 
     .tbt-image-container {
-      text-align: center;
-      padding: 6px;
+      width: 100%;
+      height: 350px;
       background: #fafafa;
       border: 1px dashed #bbb;
       border-radius: 4px;
-      min-height: 350px;
       display: flex;
-      justify-content: center;
       align-items: center;
-      box-sizing: border-box;
+      justify-content: center;
     }
 
     .tbt-image-container img {
-      max-width: 100%;
-      max-height: 320px;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       display: block;
-      margin: 0 auto;
     }
 
     @media print {
@@ -994,7 +992,7 @@
               <tr>
                 <td class="col-no">11</td>
                 <td class="col-desc">
-                  <span class="desc-en">Scaffold stability certified by competent person. Certified by: -------------</span>
+                  <span class="desc-en">Scaffold stability certified by competent person. Certified by: _____________</span>
                   <span class="desc-hi">मचान की स्थिरता प्रमाणित है। प्रमाणनकर्ता: ______________</span>
                 </td>
                 <td class="col-yes"><div class="check-box"><input type="checkbox"></div></td>
@@ -1131,24 +1129,8 @@
         <span>Tool Box Talk (TBT) Photo Attachment</span>
         <span class="hi">टूल बॉक्स टॉक (टीबीटी) फोटो संलग्नक</span>
       </div>
-      <div class="tbt-placeholder-box" style="
-        border: 2px dashed #aaa;
-        border-radius: 4px;
-        min-height: 450px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: #fafafa;
-        color: #aaa;
-        font-size: 13px;
-        font-weight: bold;
-        gap: 4px;
-        padding: 12px;
-        text-align: center;
-      ">
-        📷 Paste TBT Photo Here
-        <span style="font-size:9px; color:#bbb;">टीबीटी फोटो यहाँ चिपकाएँ</span>
+      <div class="tbt-image-container">
+        <img src="images/image_tbt.png" alt="Tool Box Talk Photo Attachment">
       </div>
     </div>
 
