@@ -469,24 +469,22 @@
     }
 
     .tbt-image-container {
-      text-align: center;
-      padding: 6px;
+      width: 100%;
       background: #fafafa;
       border: 1px dashed #bbb;
       border-radius: 4px;
-      min-height: 350px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-sizing: border-box;
     }
 
+    /* TBT Image: renders at natural size.
+       If the image is too large and doesn't fit on the page when printing,
+       set a max-width or max-height below, e.g.:
+         max-width: 80%;   — limits width
+         max-height: 300px; — limits height (add object-fit: contain; too)
+    */
     .tbt-image-container img {
-      max-width: 100%;
-      max-height: 320px;
-      object-fit: contain;
       display: block;
-      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
     }
 
     @media print {

@@ -171,13 +171,26 @@
     .auth-input { flex: 1; height: 11px; font-size: 10px; }
     .auth-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
 
-    .tbt-placeholder {
-      border: 2px dashed #aaa; border-radius: 4px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: #fafafa; color: #aaa; font-size: 14px; font-weight: bold;
-      gap: 5px; text-align: center; height: 100%; min-height: 100px;
+    .tbt-card { margin-top: 4px; }
+
+    .tbt-image-container {
+      width: 100%;
+      background: #fafafa;
+      border: 1px dashed #bbb;
+      border-radius: 4px;
     }
-    .tbt-placeholder span { font-size: 9px; color: #bbb; }
+
+    /* TBT Image: renders at natural size.
+       If the image is too large and doesn't fit on the page when printing,
+       set a max-width or max-height below, e.g.:
+         max-width: 80%;   — limits width
+         max-height: 300px; — limits height (add object-fit: contain; too)
+    */
+    .tbt-image-container img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
@@ -544,127 +557,127 @@
         <div class="cl-no">1</div>
         <div class="cl-desc"><span class="en">No combustible material within 11 m; work area barricaded.</span><span class="hi-text">11 मीटर में ज्वलनशील सामग्री नहीं; क्षेत्र बैरिकेड।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_1.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_1.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">2</div>
         <div class="cl-desc"><span class="en">Surface free from oil, grease &amp; dust.</span><span class="hi-text">सतह तेल, ग्रीस और धूल से मुक्त है।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_2.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_2.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">3</div>
         <div class="cl-desc"><span class="en">Equipment drained, cleaned and vented.</span><span class="hi-text">उपकरण खाली, साफ और वेंट किया गया।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_3.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_3.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">4</div>
         <div class="cl-desc"><span class="en">Pipelines / vessels / drains cleaned and protected.</span><span class="hi-text">पाइपलाइन / पोत / नाले साफ और संरक्षित।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_4.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_4.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">5</div>
         <div class="cl-desc"><span class="en">Electrical / Mechanical / Pneumatic isolation completed. Type: _______</span><span class="hi-text">विद्युत / यांत्रिक / वायवीय आइसोलेशन पूर्ण। प्रकार: ________</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_5.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_5.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">6</div>
         <div class="cl-desc"><span class="en">LOTO permit filled? List permit No.: _______</span><span class="hi-text">लॉटो परमिट भरा गया? परमिट नं.: ________</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_6.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_6.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">7</div>
         <div class="cl-desc"><span class="en">Grinder wheel rated higher than grinder RPM.</span><span class="hi-text">ग्राइंडर व्हील की रेटिंग ग्राइंडर आरपीएम से अधिक।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_7.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_7.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">8</div>
         <div class="cl-desc"><span class="en">Adequate ventilation provided.</span><span class="hi-text">वेंटीलेशन का उचित प्रावधान किया गया है।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_8.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_8.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">9</div>
         <div class="cl-desc"><span class="en">Area covered with blanket / adequate water availability.</span><span class="hi-text">क्षेत्र कंबल से ढका; पर्याप्त पानी उपलब्ध।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_9.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_9.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">10</div>
         <div class="cl-desc"><span class="en">Suitable fire extinguisher ready; trained fire fighter deployed. Type: _</span><span class="hi-text">उपयुक्त अग्निशामक तैयार; प्रशिक्षित फायर फाइटर तैनात।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_10.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_10.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">11</div>
         <div class="cl-desc"><span class="en">Flash back arrestor present for cutting / welding sets.</span><span class="hi-text">कटिंग/वेल्डिंग सेट के लिए फ्लैशबैक अरेस्टर उपस्थित।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_11.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_11.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">12</div>
         <div class="cl-desc"><span class="en">Fire watcher assigned and briefed. Name: _________________</span><span class="hi-text">फायर वॉचर तैनात और जिम्मेदारियों से परिचित। नाम: ________</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_12.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_12.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">13</div>
         <div class="cl-desc"><span class="en">Regulator, hoses, gauges, torch, cylinders in good condition.</span><span class="hi-text">रेगुलेटर, पाइप, टॉर्च, सिलेंडर अच्छी स्थिति में हैं।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_13.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_13.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">14</div>
         <div class="cl-desc"><span class="en">Compressed gas cylinders leak-tested. Done by (name): ______</span><span class="hi-text">संपीड़ित गैस सिलेंडर की जांच और लीक टेस्ट किया गया।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_14.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_14.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">15</div>
         <div class="cl-desc"><span class="en">Cylinders outside spark zone (&gt;6.1 m), secured upright and shielded.</span><span class="hi-text">सिलेंडर स्पार्क ज़ोन से बाहर, सुरक्षित सीधे और ढाल से सुरक्षित।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_15.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_15.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">16</div>
         <div class="cl-desc"><span class="en">Welding / grinding machines earthed; cables in good condition.</span><span class="hi-text">वेल्डिंग/ग्राइंडिंग मशीनें अर्थ की गईं; केबल अच्छी स्थिति में।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_16.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_16.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">17</div>
         <div class="cl-desc"><span class="en">Explosive meter test done? Reading: ___ Done By: ___ Time: ___</span><span class="hi-text">विस्फोटक मीटर परीक्षण। रीडिंग: ___ किसके द्वारा: ___ समय: ___</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_17.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_17.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">18</div>
         <div class="cl-desc"><span class="en">Explosive meter calibration done? Due Date: ________</span><span class="hi-text">विस्फोटक मीटर कैलिब्रेशन किया गया? नियत तिथि: ________</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_18.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_18.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">19</div>
         <div class="cl-desc"><span class="en">Trained person deployed to execute the activity.</span><span class="hi-text">गतिविधि के लिए प्रशिक्षित व्यक्ति तैनात किया गया।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_19.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_19.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">20</div>
         <div class="cl-desc"><span class="en">Use metallic wire / workbench for cutting and welding activities.</span><span class="hi-text">कटिंग/वेल्डिंग के लिए धातु की तार या वर्कबेंच का उपयोग करें।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_20.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_20.png" alt=""></div>
       </div>
       <div class="cl-item">
         <div class="cl-no">21</div>
         <div class="cl-desc"><span class="en">Other special precautions implemented: ________________</span><span class="hi-text">अन्य विशेष सावधानियां लागू की गई हैं।</span></div>
         <div class="cl-check"><input type="checkbox"></div><div class="cl-check"><input type="checkbox"></div>
-        <div class="cl-photo"><img src="images/image_h_1_21.png" alt=""></div>
+        <div class="cl-photo"><img src="images/image_ho_1_21.png" alt=""></div>
       </div>
 
       <!-- Side-by-side Fire Watch & Self Declaration -->
@@ -866,6 +879,17 @@
     </div><!-- end col 3 -->
 
   </div><!-- end three-col-zone -->
+
+  <!-- Tool Box Talk (TBT) Section -->
+  <div class="card tbt-card">
+    <div class="card-header" style="background: linear-gradient(90deg, #2e7d32, #4caf50);">
+      <span>Tool Box Talk (TBT) Photo Attachment</span>
+      <span class="hi">टूल बॉक्स टॉक (टीबीटी) फोटो संलग्नक</span>
+    </div>
+    <div class="tbt-image-container">
+      <img src="images/image_tbt.png" alt="Tool Box Talk Photo Attachment">
+    </div>
+  </div>
 
 </div><!-- end permit-wrapper -->
 </body>
